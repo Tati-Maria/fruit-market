@@ -1,0 +1,36 @@
+@use "../abstract/mixins";
+@use "../abstract/variables";
+
+
+.navbar{
+    background-color: variables.$primary-clr;
+    color: variables.$text-clr;
+
+    &__container{
+        @include mixins.container-1;
+        @include mixins.flex-2;
+    }
+
+    &__links{
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    &__cart{
+       @include mixins.flex-1;
+       position: relative;
+       color: #111;
+
+       &-container{
+        position: absolute;
+        right: -8px;
+        top: -8px;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        text-align: center;
+       }
+    }
+}

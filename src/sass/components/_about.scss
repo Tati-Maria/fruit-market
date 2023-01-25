@@ -1,0 +1,17 @@
+@use "../abstract/mixins";
+
+.about{
+    min-height: 100vh;
+    padding: 3rem 0;
+    @include mixins.container-1;
+
+    & h2{
+        font-size: 3rem;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+    }
+
+    & p{
+        line-height: 1.5;
+    }
+}

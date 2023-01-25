@@ -1,0 +1,146 @@
+@use "../abstract/mixins";
+@use "../abstract/variables";
+
+
+.product{
+    padding: 1rem 0;
+    min-height: 100vh;
+
+    &__layout{
+        background-color: #eee;
+    }
+
+    & h1{
+        text-align: center;
+        padding: 3rem 0;
+    }
+
+    &__container{
+        @include mixins.container-1;
+        @include mixins.grid-1;
+        gap: 4rem;
+    }
+
+    &__item{
+        @include mixins.flex-1;
+        align-items: flex-start;
+        gap: 1rem;
+        border: 2px solid variables.$extra-clr;
+        padding: 1.3rem;
+        border-radius: .5rem;
+
+        & img{
+            border-radius: .6rem;
+        }
+
+        & button{
+            @include mixins.flex-2;
+            gap: .5rem;
+            flex-direction: row-reverse;
+            background-color: variables.$extra-clr;
+            border: 2px solid variables.$extra-clr;
+            padding: .4rem 1rem;
+            border-radius: .5rem;
+            color: variables.$text-clr;
+            transition: 300ms ease;
+
+            &:hover{
+                color: variables.$extra-clr;
+                background-color: variables.$text-clr;
+            }
+        }
+    }
+
+    &__info{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: .4rem;
+
+        & h4{
+            font-weight: 300;
+        }
+
+        & p{
+            font-weight: 600;
+        }
+    }
+
+
+    &__detail{
+        min-height: 100vh;
+        padding: 5rem 0;
+        @include mixins.container-1;
+
+        & h2{
+            text-align: center;
+            padding: 3rem 0 2rem;
+            font-size: 2rem;
+
+            & span {
+                color: variables.$extra-clr;
+            }
+        }
+
+        &-container{
+            @include mixins.flex-1;
+            gap: 1rem;
+
+            & p{
+                text-align: center;
+            }
+
+            & img{
+                border-radius: .6rem;
+            }
+        }
+
+        &-info{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            h4{
+                font-weight: 400;
+                color: variables.$primary-clr;
+                font-size: 1.2rem;
+            }
+
+            p{
+                font-weight: 600;
+                color: variables.$primary-clr;
+                font-size: 1.2rem;
+            }
+        }
+
+        & button{
+            background-color: variables.$secondary-clr;
+            color: variables.$text-clr;
+            border: 2px solid ;
+            padding: .5rem 1.6rem;
+            border-radius: .5rem;
+            transition: 300ms ease;
+
+            &:hover{
+                background-color: transparent;
+                color: variables.$secondary-clr;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .product{
+        &__container{
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            & button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
+}

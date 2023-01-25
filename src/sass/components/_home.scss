@@ -1,0 +1,41 @@
+@use "../abstract//mixins";
+@use "../abstract/variables";
+
+
+.hero{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: left;
+    padding: 1rem 0;
+    color: variables.$text-clr;
+
+    &__container{
+        @include mixins.container-1;
+    }
+
+    &__content{
+        @include mixins.flex-1;
+        margin-top: 10rem;
+
+        & h1{
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        & .btn{
+            color: variables.$text-clr;
+            @include mixins.flex-2;
+            gap: 0.4rem;
+            background-color: variables.$secondary-clr;
+            padding: .8rem 1.4rem;
+            border-radius: .4rem;
+            @include mixins.shadow-md;
+            transition: background-color 300ms;
+
+            &:hover{
+                background-color: variables.$extra-clr;
+            }
+        }
+    }
+}

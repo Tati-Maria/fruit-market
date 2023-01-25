@@ -1,0 +1,123 @@
+@use "../abstract/mixins";
+@use "../abstract/variables";
+
+.cart{
+    min-height: 100vh;
+    padding: 1rem;
+
+    & .empty{
+        display: block;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    &__title{
+        text-align: center;
+        padding: 3rem 0;
+        font-size: 2rem;
+    }
+
+    &__container{
+        @include mixins.container-1;
+        border: 2px solid variables.$primary-clr;
+        border-radius: .4rem;
+    }
+
+    &__subtotal{
+        p{
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+    }
+
+    
+
+    &__items-btn{
+        display: flex;
+        align-items: center;
+        background-color: variables.$extra-clr;
+        padding: .4rem;
+        border-radius: .5rem;
+        margin-left: 4rem;
+
+    }
+
+    &__items-item{
+        grid-column: span 2 / span 3;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin: 1rem 0;
+        border-radius: .5rem;
+        padding-bottom: 1rem;
+        place-items: center;
+        gap: 2rem;
+
+        &-info{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+
+    &__summary{
+        background-color: variables.$primary-clr;
+        color: variables.$text-clr;
+        padding: 1rem;
+        width: 100%;
+        border-radius: .4rem;
+        margin-top: 2rem;
+        
+
+        & h2{
+            border-bottom: 2px solid;
+            padding-bottom: .5rem;
+            margin-bottom: 1rem
+        }
+
+        & p{
+            @include mixins.flex-2;
+            font-weight: 300;
+            font-size: 1.6rem;
+
+            & span{
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__btn{
+        color: variables.$text-clr;
+        border: 2px solid;
+        width: max-content;
+        padding: .5rem;
+        border-radius: .4rem;
+        margin: 1rem auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cart{
+        &__items-item{
+            grid-template-columns: 1fr;
+            place-items: center;
+            border: 2px solid variables.$extra-clr;
+            padding: 1rem 0;
+            gap: .4rem;
+
+            &-info{
+                flex-direction: column;
+            }
+
+        }
+
+        &__items-btn{
+            margin-left: 0px;
+        }
+
+        &__subtotal{
+            p {
+                font-size: 1rem;
+            };
+        }
+    }
+}
